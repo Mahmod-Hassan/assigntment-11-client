@@ -32,11 +32,11 @@ const Login = () => {
                         {/* if new create an account is here */}
                         <p className='mt-6 label-text'>New to fruits panda? <Link to='/register' className='link link-hover text-blue-600'>create an account</Link></p>
 
-                        <div className="flex items-center justify-between mt-4">
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <div className="flex items-center justify-between mt-4 gap-8">
+                            <button className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold border-0" type="submit">
                                 Sign In
                             </button>
-                            <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                            <a className="block font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
                                 Forgot Password?
                             </a>
                         </div>
