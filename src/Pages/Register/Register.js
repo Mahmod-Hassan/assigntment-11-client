@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
+
+    const { createUser } = useContext(AuthContext);
+
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
         const userName = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(userName, email, password);
+        createUser(email, password)
+            .then(result => {
+                form.reset();
+                toast.success('registration suceessfully')
+            })
+            .catch(err => toast.error(err.message))
     }
     return (
         <div className="hero py-6 bg-base-200">

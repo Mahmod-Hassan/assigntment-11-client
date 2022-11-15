@@ -1,12 +1,26 @@
-import React from 'react';
+import userEvent from '@testing-library/user-event';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+    const { logOut, user } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+    }
     const Links = <>
         <Link className='font-semibold mr-4 hover:text-red-500' to='/'>Home</Link>
         <Link className='font-semibold mr-4 hover:text-red-500' to='/products'>Products</Link>
-        <Link className='font-semibold mr-4 hover:text-red-500' to='/login'>Login</Link>
-        <Link className='font-semibold mr-4 hover:text-red-500' to='/register'>Register</Link>
+        {
+            user?.uid ?
+                <button onClick={handleLogout} className="btn">Logout</button>
+                :
+                <>
+                    <Link className='font-semibold mr-4 hover:text-red-500' to='/login'>Login</Link>
+                    <Link className='font-semibold mr-4 hover:text-red-500' to='/register'>Register</Link>
+                </>
+        }
     </>
     return (
         <div className="navbar border h-20 mb-8 bg-base-100">
@@ -24,7 +38,7 @@ const Header = () => {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+                <ul className="menu items-center menu-horizontal p-0">
                     {Links}
                 </ul>
             </div>
