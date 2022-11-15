@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     const Links = <>
-        <Link className='font-semibold mr-2 hover:text-red-500' to='/'>Home</Link>
-        <Link className='font-semibold mr-2 hover:text-red-500' to='/services'>Services</Link>
-        <Link className='font-semibold mr-2 hover:text-red-500' to='/login'>Login</Link>
+        <Link className='font-semibold mr-4 hover:text-red-500' to='/'>Home</Link>
+        <Link className='font-semibold mr-4 hover:text-red-500' to='/products'>Products</Link>
+        <Link className='font-semibold mr-4 hover:text-red-500' to='/login'>Login</Link>
+        <Link className='font-semibold mr-4 hover:text-red-500' to='/register'>Register</Link>
     </>
     return (
         <div className="navbar border h-20 mb-8 bg-base-100">
@@ -19,8 +20,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to='/'>
-                    <img className='h-16'
-                        src='https://png.pngtree.com/png-clipart/20200727/original/pngtree-food-delivery-logo-design-png-image_5392526.jpg' alt="" />
+                    <h1 className="text-3xl font-bold text-pink-500">FRUITS <span className="text-sky-900">PANDA</span></h1>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
