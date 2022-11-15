@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
+
+    const { googleSignIn } = useContext(AuthContext);
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => { })
+            .catch(err => setError(err))
     }
     return (
         <div className="hero py-6 bg-base-200">
@@ -40,6 +52,7 @@ const Login = () => {
                                 Forgot Password?
                             </a>
                         </div>
+                        <button onClick={handleGoogleSignIn} className='btn btn-accent mt-6 w-full text-white'>GOOGLE SIGN IN</button>
                     </form>
                 </div>
 
