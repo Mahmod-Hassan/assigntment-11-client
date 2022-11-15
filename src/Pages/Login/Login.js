@@ -34,7 +34,7 @@ const Login = () => {
 
     return (
         <div className="hero py-6 bg-base-200">
-            <div className="card w-2/3 lg:w-1/3 shadow-2xl bg-base-100">
+            <div className="card w-4/5 lg:w-2/4 shadow-2xl bg-base-100">
 
                 <div className="card-body">
                     <h1 className='text-4xl font-bold text-center text-purple-600'>Login</h1>
