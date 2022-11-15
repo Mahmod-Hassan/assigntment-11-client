@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
@@ -18,8 +19,10 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn()
-            .then(result => { })
-            .catch(err => setError(err))
+            .then(result => {
+                toast.success('successfully logged in')
+            })
+            .catch(err => toast.error(error.message))
     }
     return (
         <div className="hero py-6 bg-base-200">
