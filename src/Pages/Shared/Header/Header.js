@@ -17,7 +17,8 @@ const Header = () => {
         {
             user?.uid ?
                 <>
-                    <Link className='font-semibold mr-4 hover:text-red-500' to='/myreviews'>My Reviews</Link>
+                    <Link className='font-semibold mr-4 hover:text-red-500' to='/my-reviews'>My Reviews</Link>
+                    <Link className='font-semibold mr-4 hover:text-red-500' to='/add-service'>Add Service</Link>
                     <button onClick={handleLogout} className="btn">Logout</button>
                 </>
 
