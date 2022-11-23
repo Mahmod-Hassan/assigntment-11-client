@@ -1,13 +1,15 @@
 
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
 
     const { logOut, user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleLogout = () => {
         logOut()
+        navigate('/');
     }
     const Links = <>
         <Link className='font-semibold mr-4 hover:text-red-500' to='/'>Home</Link>
@@ -45,7 +47,12 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-outline btn-error">Appoinment</button>
+                {
+                    user?.email && <img
+                        src={user?.photoURL}
+                        className='w-16 h-16 rounded-full'
+                    ></img>
+                }
             </div>
         </div>
     );
