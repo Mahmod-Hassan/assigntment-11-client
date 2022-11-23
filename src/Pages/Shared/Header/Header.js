@@ -1,4 +1,4 @@
-import userEvent from '@testing-library/user-event';
+
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
@@ -11,7 +11,7 @@ const Header = () => {
     }
     const Links = <>
         <Link className='font-semibold mr-4 hover:text-red-500' to='/'>Home</Link>
-        <Link className='font-semibold mr-4 hover:text-red-500' to='/products'>Products</Link>
+        <Link className='font-semibold mr-4 hover:text-red-500' to='/services'>Services</Link>
         {
             user?.uid ?
                 <button onClick={handleLogout} className="btn">Logout</button>
@@ -34,7 +34,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to='/'>
-                    <h1 className="text-3xl font-bold text-pink-500">FRUITS <span className="text-sky-900">PANDA</span></h1>
+                    {/* <h1 className="text-3xl font-bold text-pink-500">CLASSIC <span className="text-sky-900">KITCHEN</span></h1> */}
+
+                    <img src='https://www.google.com/search?rlz=1C1UEAD_enBD1031BD1031&sxsrf=ALiCzsb7TEZS7OMLIpSeerIdgpUrM12q4Q:1669128176115&q=Street+food+logo&tbm=isch&source=iu&ictx=1&vet=1#imgrc=by69ywiNZJy_9M'></img>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">

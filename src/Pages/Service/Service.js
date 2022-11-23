@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Product = ({ product }) => {
-    const { product_name, img, price, description } = product;
+const Service = ({ service }) => {
+    const { service_name, img, price, description } = service;
     return (
-        <div className="card bg-base-300 shadow-md">
+        <div className="card shadow-md">
             <img src={img} alt="fruits-img"
-                className="h-72"
+                className="h-72 m-2 rounded"
             />
             <div className="card-body">
-                <h2 className="text-2xl font-bold">{product_name}</h2>
+                <h2 className="text-2xl font-bold">{service_name}</h2>
                 <>{description.length > 100 ?
                     <p className="text-gray-500">{description.slice(0, 100) + " ..."}</p>
                     :
@@ -19,11 +19,11 @@ const Product = ({ product }) => {
                 </div>
 
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">View Details</button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Product;
+export default Service;

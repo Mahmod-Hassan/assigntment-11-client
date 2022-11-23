@@ -1,0 +1,44 @@
+[
+    {
+        "service_name": "Kala Chana",
+        "img": "https://cdn1.foodviva.com/static-content/food-images/curry-recipes/kala-chana-recipe/kala-chana-recipe.jpg",
+        "price": "20",
+        "ratings": "3",
+        "description": "Kala Chana is a pupolar in my area. That's why i make this recipe and it's price is very cheap.People like this food very much.I sell this recipe in online. If you want to try this recipe you can order this Kala Chana Recipe"
+    },
+    {
+        "service_name": "Singara",
+        "img": "https://i.ytimg.com/vi/aRzdFHqJHXg/maxresdefault.jpg",
+        "price": "10",
+        "ratings": "3",
+        "description": "Singara is famous food in my kitchen. People all like this recipe. One singara 10 taka. If you want to buy Please order now, because we sell our food in online."
+    },
+    {
+        "service_name": "Beguni Chop",
+        "img": "https://i.ndtvimg.com/i/2017-12/beguni_620x330_71513660577.jpg",
+        "price": "10",
+        "ratings": "3",
+        "description": "Beguni Chop is made with bashon and brinjal shell. People all over the world like this food. It's frid on oil. Though it is taste delicious not healthy food. If you want to try this then order now. We sell it online"
+    },
+    {
+        "service_name": "Aloo Chop",
+        "img": "https://static.toiimg.com/photo/60731179.cms",
+        "price": "10",
+        "ratings": "3",
+        "description": "Alo Chop is made with bashon and flour. People all over the world like this food. It's frid on oil. Though it is taste delicious not healthy food. If you want to try this then order now. We sell it online"
+    },
+    {
+        "service_name": "Mughlai",
+        "img": "https://www.getbengal.com/uploads/story_image/Tourism-Mughlai-Paratha.jpg",
+        "price": "50",
+        "ratings": "50",
+        "description": "Mughlai is famous all over the world. It made by egg, flour and onion slice. People like it very much that's why I cooked this recipe in my kitchen"
+    },
+    {
+        "service_name": "Samosa",
+        "img": "https://media.istockphoto.com/id/848708640/photo/asian-food-vegetarian-samsa-with-tomato-sauce-and-herbs-dark-background.jpg?b=1&s=170667a&w=0&k=20&c=n02A6HMCvs3ZfAcjbmtkFvS4_scT1gv_ahyZTVDAQ6o=",
+        "price": "15",
+        "ratings": "3",
+        "description": "Samusa is interesting food in my area.  The samosa is prepared with an all-purpose flour and stuffed with a filling ,onions, green peas, lentils, ginger, spices and green chili which gives the samosa a sweet-sour taste.Somosa don't contain healthy caloris in any aspect."
+    }
+]
