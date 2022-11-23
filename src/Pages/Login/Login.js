@@ -66,7 +66,7 @@ const Login = () => {
                             <button className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold border-0" type="submit">
                                 Sign In
                             </button>
-                            <a className="block font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                            <a className="block font-bold text-sm text-blue-500 hover:text-blue-800" href="/">
                                 Forgot Password?
                             </a>
                         </div>

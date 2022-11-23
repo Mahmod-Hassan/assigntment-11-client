@@ -16,11 +16,16 @@ const Header = () => {
         <Link className='font-semibold mr-4 hover:text-red-500' to='/services'>Services</Link>
         {
             user?.uid ?
-                <button onClick={handleLogout} className="btn">Logout</button>
+                <>
+                    <Link className='font-semibold mr-4 hover:text-red-500' to='/myreviews'>My Reviews</Link>
+                    <button onClick={handleLogout} className="btn">Logout</button>
+                </>
+
                 :
                 <>
                     <Link className='font-semibold mr-4 hover:text-red-500' to='/login'>Login</Link>
                     <Link className='font-semibold mr-4 hover:text-red-500' to='/register'>Register</Link>
+
                 </>
         }
     </>
@@ -52,6 +57,7 @@ const Header = () => {
                         <img
                             src={user?.photoURL}
                             className='w-16 h-16 rounded-full'
+                            alt=""
                         ></img>
                     </>
 
