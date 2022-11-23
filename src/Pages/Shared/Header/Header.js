@@ -36,9 +36,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to='/'>
-                    {/* <h1 className="text-3xl font-bold text-pink-500">CLASSIC <span className="text-sky-900">KITCHEN</span></h1> */}
-
-                    <img src='https://www.google.com/search?rlz=1C1UEAD_enBD1031BD1031&sxsrf=ALiCzsb7TEZS7OMLIpSeerIdgpUrM12q4Q:1669128176115&q=Street+food+logo&tbm=isch&source=iu&ictx=1&vet=1#imgrc=by69ywiNZJy_9M'></img>
+                    <h1 className="text-3xl font-bold text-pink-500">CLASSIC <span className="text-sky-900">KITCHEN</span></h1>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -48,10 +46,15 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user?.email && <img
-                        src={user?.photoURL}
-                        className='w-16 h-16 rounded-full'
-                    ></img>
+                    user?.email &&
+                    <>
+                        <span className='mr-2 text-gray-500'>{user.email}</span>
+                        <img
+                            src={user?.photoURL}
+                            className='w-16 h-16 rounded-full'
+                        ></img>
+                    </>
+
                 }
             </div>
         </div>
