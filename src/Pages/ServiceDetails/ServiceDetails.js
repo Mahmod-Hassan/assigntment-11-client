@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     const service = useLoaderData();
     console.log(service);
     const { img, description, service_name, _id } = service;
-    const { data: reviews = [] } = useQuery({
+    const { data: reviews = [], refetch } = useQuery({
         queryKey: ['all-reviews'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/all-reviews');
@@ -43,6 +43,7 @@ const ServiceDetails = () => {
                 if (data.acknowledged) {
                     toast.success('thanks for you feedback')
                     form.reset();
+                    refetch();
                 }
 
             })
