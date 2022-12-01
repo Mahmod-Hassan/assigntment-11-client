@@ -6,9 +6,11 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const ServiceDetails = () => {
+
     const { user } = useContext(AuthContext);
     const service = useLoaderData();
-    const { img, description, service_name } = service;
+    console.log(service);
+    const { img, description, service_name, _id } = service;
     const { data: reviews = [] } = useQuery({
         queryKey: ['all-reviews'],
         queryFn: async () => {
@@ -25,7 +27,9 @@ const ServiceDetails = () => {
             displayName: user?.displayName,
             email: user?.email,
             photoURL: user.photoURL,
-            feedback: feedback,
+            feedback,
+            service_name,
+            id: _id,
         }
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
@@ -55,19 +59,17 @@ const ServiceDetails = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <form onSubmit={handleReview}>
-                                <div className="form-control">
-                                    <label className="label">Name</label>
-                                    <input type="text" placeholder="email" className="input input-bordered" defaultValue={user?.displayName} />
-                                </div>
-                                <div className="form-control">
-                                    <label className="label">Email</label>
-                                    <input type="text" placeholder="password" className="input input-bordered" defaultValue={user?.email} />
-                                </div>
-                                <div className="form-control">
-                                    <label className="label">Photo Url</label>
-                                    <input type="text" placeholder="password" className="input input-bordered" defaultValue={user?.photoURL} />
-                                </div>
-                                <textarea name="feedback" className="textarea textarea-bordered w-full mt-2" placeholder="send feedback.."></textarea>
+
+                                <input type="text" placeholder="email" className="input input-bordered w-full my-2" defaultValue={user?.displayName} readOnly />
+
+                                <input type="text" placeholder="password" className="input input-bordered w-full my-2" defaultValue={user?.email} readOnly />
+
+
+                                <input type="text" placeholder="password" className="input input-bordered w-full my-2" defaultValue={user?.photoURL} readOnly />
+
+                                <input type="text" className='input input-bordered w-full my-2' value={service_name} readOnly />
+
+                                <textarea name="feedback" className="textarea textarea-bordered w-full mt-2" placeholder="Your reviews please..."></textarea>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Send Review</button>
                                 </div>

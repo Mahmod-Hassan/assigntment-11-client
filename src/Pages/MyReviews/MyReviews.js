@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const MyReviews = () => {
@@ -8,12 +9,16 @@ const MyReviews = () => {
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['my-reviews', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/my-reviews?email=${user?.email}`);
+            const res = await fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             const data = await res.json();
             return data;
         }
     })
-
+    console.log(reviews);
     const handleDelete = id => {
         const proceed = window.confirm('are you sure want to delete');
         if (proceed) {
@@ -38,9 +43,9 @@ const MyReviews = () => {
                 <thead>
                     <tr>
                         <th>No .</th>
-                        <th>Photo</th>
-                        <th>Name</th>
+                        <th>Service Name</th>
                         <th>Review</th>
+                        <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -48,10 +53,10 @@ const MyReviews = () => {
                     {
                         reviews.map((review, idx) =>
                             <tr key={review._id}>
-                                <th>{idx + 1}</th>
-                                <td><img src={review.photoURL} className="w-20" alt="" /></td>
-                                <td>{review.displayName}</td>
+                                <td>{idx + 1}</td>
+                                <td className='text-green-400 text-xl font-bold'>{(review.service_name).toUpperCase()}</td>
                                 <td>{review.feedback}</td>
+                                <td><Link to={`/edit-review/${review._id}`} className='btn'>Edit</Link></td>
                                 <td><button onClick={() => handleDelete(review._id)} className='btn btn-sm btn-error text-white'>delete</button></td>
                             </tr>)
                     }
