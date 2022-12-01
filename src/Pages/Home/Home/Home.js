@@ -6,9 +6,9 @@ import Banner from '../Banner/Banner';
 
 const Home = () => {
     const { data: services = [] } = useQuery({
-        queryKey: ['/services'],
+        queryKey: ['service-limit'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/services?limit=limit');
+            const res = await fetch('http://localhost:5000/service-limit');
             const data = await res.json();
             return data;
         }

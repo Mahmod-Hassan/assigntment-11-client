@@ -59,7 +59,7 @@ const AddService = () => {
 
                         <div className="form-control">
                             <label className='mb-2'>Description</label>
-                            <input type="text" placeholder="description" name="description" className="input input-bordered mb-4" required />
+                            <textarea name="description" className="textarea textarea-bordered w-full my-2" placeholder="write about food..."></textarea>
                         </div>
 
                         <button type='submit' className='btn btn-primary w-full'>Add Service</button>

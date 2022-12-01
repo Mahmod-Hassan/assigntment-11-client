@@ -5,7 +5,7 @@ import Service from '../Service/Service';
 
 const Services = () => {
     const { data: services = [] } = useQuery({
-        queryKey: ['/services'],
+        queryKey: ['services'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/services');
             const data = await res.json();

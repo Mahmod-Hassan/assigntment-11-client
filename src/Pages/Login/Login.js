@@ -1,16 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
 
     const [error, setError] = useState('');
-
+    const [userEmail, setUserEmail] = useState('');
     const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
+    const [token] = useToken(userEmail);
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token])
     // Login with email and password
     const handleLogin = event => {
         event.preventDefault();
@@ -22,7 +29,7 @@ const Login = () => {
                 console.log(result.user);
                 toast.success('successfully logged in')
                 form.reset();
-                navigate(from, { replace: true });
+                setUserEmail(email);
             })
             .catch(err => setError(err.message))
     }
@@ -31,11 +38,30 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                toast.success('successfully logged in')
+                const user = result.user;
+                savedUserToDatabase(user?.displayName, user?.email);
             })
             .catch(err => toast.error(err.message))
     }
-
+    const savedUserToDatabase = (name, email) => {
+        const user = { name, email };
+        console.log(user);
+        fetch(`http://localhost:5000/users?email=${email}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    setUserEmail(email)
+                    setError('');
+                    toast.success('user created successfully')
+                }
+            })
+    }
     return (
         <div className="hero py-6 bg-base-200">
             <div className="card w-4/5 lg:w-2/4 shadow-2xl bg-base-100">

@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const { data: reviews = [], refetch } = useQuery({
-        queryKey: ['reviews', user?.email],
+        queryKey: ['my-reviews', user?.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/my-reviews?email=${user?.email}`);
             const data = await res.json();
@@ -17,7 +17,7 @@ const MyReviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('are you sure want to delete');
         if (proceed) {
-            fetch(`http://localhost:5000/my-reviews/${id}`, {
+            fetch(`http://localhost:5000/delete-my-reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -37,14 +37,14 @@ const MyReviews = () => {
 
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>No .</th>
                         <th>Photo</th>
                         <th>Name</th>
                         <th>Review</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='border'>
                     {
                         reviews.map((review, idx) =>
                             <tr key={review._id}>
@@ -57,7 +57,14 @@ const MyReviews = () => {
                     }
 
                 </tbody>
+
             </table>
+            {
+                reviews.length === 0 && <div className='md:flex justify-center items-center lg:h-[400px] text-red-500'>
+                    <p className=''>NO revivews were added </p>
+                </div>
+            }
+
         </div>
     );
 };

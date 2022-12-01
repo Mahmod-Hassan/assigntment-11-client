@@ -1,13 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
 
     const [error, setError] = useState('');
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [userEmail, setUserEmail] = useState('');
+    const [token] = useToken(userEmail);
+    useEffect(() => {
+        if (token) {
+            navigate('/');
+        }
+    }, [token])
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -29,28 +37,38 @@ const Register = () => {
             return;
         }
         createUser(email, password)
-            .then(res => {
-                setError('');
-                form.reset();
-                toast.success('registration suceessfully');
-                handleUpdateUserProfile(name, photoUrl);
-                navigate('/');
+            .then(result => {
+                const profile = {
+                    displayName: name,
+                    photoURL: photoUrl,
+                }
+                console.log(profile);
+                updateUserProfile(profile)
+                    .then(result => {
+                        savedUserToDatabase(name, email);
+                    })
+                    .catch(err => { console.log(err) })
             })
             .catch(err => toast.error(err.message))
     }
 
-    const handleUpdateUserProfile = (name, photoUrl) => {
-        const profile = {
-            displayName: name,
-            photoURL: photoUrl,
-        }
-        updateUserProfile(profile)
-            .then(result => {
-                console.log(result);
-            })
-            .catch(err => {
-                console.log(err.message);
-                setError(err.message);
+    const savedUserToDatabase = (name, email) => {
+        const user = { name, email }
+        fetch(`http://localhost:5000/users?email=${email}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    setUserEmail(email)
+                    setError('');
+                    toast.success('user created successfully')
+                }
             })
     }
     return (

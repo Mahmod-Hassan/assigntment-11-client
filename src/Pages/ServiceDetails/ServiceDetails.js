@@ -10,9 +10,9 @@ const ServiceDetails = () => {
     const service = useLoaderData();
     const { img, description, service_name } = service;
     const { data: reviews = [] } = useQuery({
-        queryKey: ['reviews'],
+        queryKey: ['all-reviews'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/reviews');
+            const res = await fetch('http://localhost:5000/all-reviews');
             const data = await res.json();
             return data;
         }
