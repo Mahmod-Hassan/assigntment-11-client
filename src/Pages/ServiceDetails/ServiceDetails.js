@@ -3,13 +3,14 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const ServiceDetails = () => {
 
     const { user } = useContext(AuthContext);
     const service = useLoaderData();
+    const navigate = useNavigate();
 
     const { img, description, service_name, _id } = service;
     const { data: reviews = [], refetch } = useQuery({
@@ -45,6 +46,7 @@ const ServiceDetails = () => {
                     toast.success('thanks for you feedback')
                     form.reset();
                     refetch();
+                    navigate('/my-reviews')
                 }
 
             })
@@ -72,7 +74,7 @@ const ServiceDetails = () => {
 
                                 <input type="text" className='input input-bordered w-full my-2' value={service_name} readOnly />
 
-                                <textarea name="feedback" className="textarea textarea-bordered w-full mt-2" placeholder="Your reviews please..."></textarea>
+                                <textarea name="feedback" className="textarea textarea-bordered w-full mt-2" placeholder="Your reviews please..." required></textarea>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Send Review</button>
                                 </div>

@@ -59,7 +59,7 @@ const MyReviews = () => {
                                 <td className='text-green-400 text-xl font-bold'>{(review.service_name).toUpperCase()}</td>
                                 <td>{review.feedback}</td>
                                 <td><Link to={`/edit-review/${review._id}`} className='btn btn-sm'>Edit</Link></td>
-                                <td><button onClick={() => handleDelete(review?.id)} className='btn btn-sm btn-error text-white'>delete</button></td>
+                                <td><button onClick={() => handleDelete(review?._id)} className='btn btn-sm btn-error text-white'>delete</button></td>
                             </tr>)
                     }
 
