@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 
 const AddService = () => {
@@ -33,6 +34,7 @@ const AddService = () => {
     }
     return (
         <div className="hero py-6 bg-base-200">
+            <Helmet><title>Add a service - Classic Kitchen</title></Helmet>
             <div className="card w-4/5 lg:w-2/4 shadow-2xl bg-base-100">
 
                 <div className="card-body">

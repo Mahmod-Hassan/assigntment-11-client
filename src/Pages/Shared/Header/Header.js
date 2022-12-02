@@ -19,7 +19,7 @@ const Header = () => {
                 <>
                     <Link className='font-semibold mr-4 hover:text-red-500' to='/my-reviews'>My Reviews</Link>
                     <Link className='font-semibold mr-4 hover:text-red-500' to='/add-service'>Add Service</Link>
-                    <button onClick={handleLogout} className="btn">Logout</button>
+                    <button onClick={handleLogout} className="btn btn-sm md:btn-md">Logout</button>
                 </>
 
                 :
@@ -37,8 +37,8 @@ const Header = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-4 shadow-md bg-base-100 w-28">
-                        {Links}
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-4 shadow-md bg-base-100 w-48">
+                        <li>{Links}</li>
                     </ul>
                 </div>
                 <Link to='/'>
@@ -54,7 +54,7 @@ const Header = () => {
                 {
                     user?.email &&
                     <>
-                        <span className='mr-2 text-gray-500'>{user.email}</span>
+                        <span className='mr-2 text-gray-500 hidden lg:block'>{user.email}</span>
                         <img
                             src={user?.photoURL}
                             className='w-16 h-16 rounded-full'

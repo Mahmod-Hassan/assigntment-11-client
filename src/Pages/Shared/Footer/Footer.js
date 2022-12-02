@@ -2,6 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
+
         <footer className="footer p-10 bg-black text-white">
             <div>
                 <span className="footer-title">Services</span>
@@ -24,6 +25,7 @@ const Footer = () => {
                 <a href='/'>Cookie policy</a>
             </div>
         </footer>
+
     );
 };
 

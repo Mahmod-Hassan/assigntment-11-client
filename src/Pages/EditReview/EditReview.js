@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
@@ -26,6 +27,7 @@ const EditReview = () => {
     }
     return (
         <div>
+            <Helmet><title>Edit reviews - Classic Kitchen</title></Helmet>
             <h2 className="text-4xl text-primary text-center my-5 font-bold">Edit Your Review</h2>
             <form onSubmit={handleEditReview} className='w-96 mx-auto shadow-lg p-5'>
                 <label>Your previous review</label>

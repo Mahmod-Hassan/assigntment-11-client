@@ -1,6 +1,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -9,7 +10,7 @@ const ServiceDetails = () => {
 
     const { user } = useContext(AuthContext);
     const service = useLoaderData();
-    console.log(service);
+
     const { img, description, service_name, _id } = service;
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['all-reviews'],
@@ -50,6 +51,7 @@ const ServiceDetails = () => {
     }
     return (
         <>
+            <Helmet><title>Service Details - Classic Kitchen</title></Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="text-center lg:text-left">

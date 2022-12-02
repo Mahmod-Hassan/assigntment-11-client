@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -18,7 +19,7 @@ const MyReviews = () => {
             return data;
         }
     })
-    console.log(reviews);
+
     const handleDelete = id => {
         const proceed = window.confirm('are you sure want to delete');
         if (proceed) {
@@ -37,7 +38,8 @@ const MyReviews = () => {
 
 
     return (
-        <div>
+        <div className='mb-20 max-w-xs'>
+            <Helmet><title>My reviews - Classic Kitchen</title></Helmet>
             <table className="table w-full">
 
                 <thead>
@@ -56,7 +58,7 @@ const MyReviews = () => {
                                 <td>{idx + 1}</td>
                                 <td className='text-green-400 text-xl font-bold'>{(review.service_name).toUpperCase()}</td>
                                 <td>{review.feedback}</td>
-                                <td><Link to={`/edit-review/${review._id}`} className='btn'>Edit</Link></td>
+                                <td><Link to={`/edit-review/${review._id}`} className='btn btn-sm'>Edit</Link></td>
                                 <td><button onClick={() => handleDelete(review?.id)} className='btn btn-sm btn-error text-white'>delete</button></td>
                             </tr>)
                     }

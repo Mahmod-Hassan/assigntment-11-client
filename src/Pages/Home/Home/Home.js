@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Service from '../../Service/Service';
 import Banner from '../Banner/Banner';
 
@@ -15,7 +16,9 @@ const Home = () => {
     })
 
     return (
+
         <div>
+            <Helmet><title>Classic Kitchen</title></Helmet>
             <Banner></Banner>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-4 lg:p-0 my-10">
                 {
