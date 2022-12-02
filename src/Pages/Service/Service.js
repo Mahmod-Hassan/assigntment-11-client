@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 
 const Service = ({ service }) => {
-    const { service_name, img, price, description, _id, date } = service;
+    const { service_name, price, description, _id, date } = service;
     return (
         <div className="card shadow-md">
 
             <PhotoProvider>
-                <PhotoView src={img}>
-                    <img src={img} alt="fruits-img"
+                <PhotoView src={service?.img}>
+                    <img src={service?.img} alt="fruits-img"
                         className="h-72 m-2 rounded"
                     />
                 </PhotoView>
