@@ -16,7 +16,7 @@ const ServiceDetails = () => {
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['all-reviews'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/all-reviews');
+            const res = await fetch('https://assigntment-11-server.vercel.app/all-reviews');
             const data = await res.json();
             return data;
         }
@@ -33,7 +33,7 @@ const ServiceDetails = () => {
             service_name,
             id: _id,
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assigntment-11-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -11,7 +11,7 @@ const Home = () => {
     const { data: services = [] } = useQuery({
         queryKey: ['service-limit'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/service-limit');
+            const res = await fetch('https://assigntment-11-server.vercel.app/service-limit');
             const data = await res.json();
             return data;
         }

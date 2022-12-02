@@ -46,7 +46,7 @@ const Login = () => {
     const savedUserToDatabase = (name, email) => {
         const user = { name, email };
         console.log(user);
-        fetch(`http://localhost:5000/users?email=${email}`, {
+        fetch(`https://assigntment-11-server.vercel.app/users?email=${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const EditReview = () => {
         event.preventDefault();
         const form = event.target;
         const feedback = form.feedback.value;
-        fetch(`http://localhost:5000/edit-review/${review?._id}`, {
+        fetch(`https://assigntment-11-server.vercel.app/edit-review/${review?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

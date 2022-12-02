@@ -10,7 +10,7 @@ const MyReviews = () => {
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['my-reviews', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
+            const res = await fetch(`https://assigntment-11-server.vercel.app/my-reviews?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -23,7 +23,7 @@ const MyReviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('are you sure want to delete');
         if (proceed) {
-            fetch(`http://localhost:5000/delete-my-reviews/${id}`, {
+            fetch(`https://assigntment-11-server.vercel.app/delete-my-reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
