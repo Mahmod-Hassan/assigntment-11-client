@@ -109,6 +109,11 @@ const ServiceDetails = () => {
 
                         </tbody>
                     </table>
+                    {
+                        reviews.length === 0 && <div className='md:flex justify-center text-xl items-center font-bold lg:h-[200px] text-red-500'>
+                            <p className=''>NO revivews added</p>
+                        </div>
+                    }
                 </div>
             </div>
         </>

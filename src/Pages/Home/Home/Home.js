@@ -3,6 +3,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Service from '../../Service/Service';
 import Banner from '../Banner/Banner';
+import OurExpert from '../OurExpert/OurExpert';
+import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 
 
 const Home = () => {
@@ -28,6 +30,8 @@ const Home = () => {
                     ></Service>)
                 }
             </div>
+            <WhyChooseUs></WhyChooseUs>
+            <OurExpert></OurExpert>
         </div>
     );
 };

@@ -9,13 +9,15 @@ const AddService = () => {
         const name = form.name.value;
         const photoURL = form.photo.value;
         const price = form.price.value;
+        const date = form.date.value;
         const description = form.description.value;
         console.log(description, name, price, photoURL);
         const service = {
             service_name: name,
             img: photoURL,
-            price: price,
-            description: description,
+            price,
+            description,
+            date,
         }
         fetch('http://localhost:5000/services', {
             method: 'POST',
@@ -51,6 +53,11 @@ const AddService = () => {
                         <div className="form-control">
                             <label className='mb-2'>Photo Url</label>
                             <input type="text" placeholder="Photo URL" name="photo" className="input input-bordered mb-4" required />
+                        </div>
+
+                        <div className="form-control">
+                            <label className='mb-2'>Date</label>
+                            <input type="date" placeholder="today date" name="date" className="input input-bordered mb-4" required />
                         </div>
 
                         <div className="form-control">

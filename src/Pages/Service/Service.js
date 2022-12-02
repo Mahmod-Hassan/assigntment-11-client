@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 
 const Service = ({ service }) => {
-    const { service_name, img, price, description, _id } = service;
+    const { service_name, img, price, description, _id, date } = service;
     return (
         <div className="card shadow-md">
 
@@ -25,7 +25,8 @@ const Service = ({ service }) => {
                     <p className="text-lime-600">{description}</p>
                 }</>
                 <div className="flex">
-                    <p className="text-xl font-semibold text-purple-500">{price}$</p> <p className="text-xl font-semibold text-purple-500 line-through">30$</p>
+                    <p className="text-xl font-semibold text-purple-500">Price : {price}$</p>
+                    <p className="text-xl font-semibold text-purple-500">Date : {date}</p>
                 </div>
 
                 <div className="card-actions justify-end">

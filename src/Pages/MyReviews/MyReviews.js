@@ -38,7 +38,7 @@ const MyReviews = () => {
 
 
     return (
-        <div className='mb-20 max-w-xs'>
+        <div className='mb-20'>
             <Helmet><title>My reviews - Classic Kitchen</title></Helmet>
             <table className="table w-full">
 
@@ -67,7 +67,7 @@ const MyReviews = () => {
 
             </table>
             {
-                reviews.length === 0 && <div className='md:flex justify-center items-center lg:h-[400px] text-red-500'>
+                reviews.length === 0 && <div className='md:flex justify-center text-xl items-center font-bold lg:h-[200px] text-red-500'>
                     <p className=''>NO revivews were added </p>
                 </div>
             }
