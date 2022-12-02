@@ -97,8 +97,8 @@ const Login = () => {
                                 Forgot Password?
                             </a>
                         </div>
-                        <button onClick={handleGoogleSignIn} className='btn btn-accent mt-6 w-full text-white'>GOOGLE SIGN IN</button>
                     </form>
+                    <button onClick={handleGoogleSignIn} className='btn btn-accent mt-6 w-full text-white'>GOOGLE SIGN IN</button>
                 </div>
 
             </div>
