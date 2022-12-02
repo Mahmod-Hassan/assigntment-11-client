@@ -14,6 +14,7 @@ const Header = () => {
     const Links = <>
         <Link className='font-semibold mr-4 hover:text-red-500' to='/'>Home</Link>
         <Link className='font-semibold mr-4 hover:text-red-500' to='/services'>Services</Link>
+        <Link className='font-semibold mr-4 hover:text-red-500' to='/blogs'>Blogs</Link>
         {
             user?.uid ?
                 <>
