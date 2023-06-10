@@ -7,7 +7,10 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Outlet></Outlet>
+            <div className='px-20'>
+              <Outlet></Outlet>
+            </div>
+           
             <Footer></Footer>
         </div>
     );
