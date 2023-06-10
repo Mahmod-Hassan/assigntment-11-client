@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OurExpert = () => {
+const Team = () => {
     const experts = [
         {
             photo: 'https://media.istockphoto.com/id/1281703031/photo/chef-sharpening-knife.jpg?s=612x612&w=0&k=20&c=ZouULqOba6_LMLBrl8iLfYZhYTOSWWHcuyGk8ybIv1s=',
@@ -19,24 +19,8 @@ const OurExpert = () => {
         },
     ]
     return (
-        // <div className='my-20'>
-        //     <h2 className="text-5xl text-error text-center uppercase font-bold mb-10">My Cooking Expert</h2>
-        //     <div className='grid md:grid-cols-3 gap-10'>
-        //         {
-        //             experts.map((expert, idx) => <div
-        //                 key={idx} className='bg-slate-500 text-center p-5 rounded'
-        //             >
-        //                 <img src={expert.photo} alt="" className='w-4/5 h-80 mx-auto' />
-        //                 <div className='flex justify-evenly text-slate-100 mt-4'>
-        //                     <b>Name: {expert.name}</b>
-        //                     <b>Expert: {expert.experiance}</b>
-        //                 </div>
-        //             </div>)
-        //         }
-        //     </div>
-        // </div >
         <div className='my-20'>
-            <h2 className="text-3xl text-center text-gray-800 uppercase font-bold mb-10">MEET MY <span className='text-blue-500'>CHEF</span></h2>
+            <h2 className="text-3xl text-center text-gray-800 uppercase font-bold mb-10">Our Team</h2>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10'>
         {
             experts.map((expert,i) => <div className="bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -53,4 +37,4 @@ const OurExpert = () => {
     );
 };
 
-export default OurExpert;
+export default Team;

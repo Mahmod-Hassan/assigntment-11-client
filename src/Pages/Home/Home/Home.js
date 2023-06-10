@@ -4,11 +4,11 @@ import { Helmet } from 'react-helmet-async';
 import Banner from '../Banner/Banner';
 import Blogs from '../Blogs/Blogs';
 import Discount from '../Discount/Discount';
+import Features from '../Features/Features';
 import Gallery from '../Gallery/Gallery';
 import Menu from '../Menu/Menu';
-import OurExpert from '../OurExpert/OurExpert';
 import Resturant from '../Resturant/Resturant';
-import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
+import Team from '../Team/Team';
 
 const Home = () => {
     // const { data: services = [] } = useQuery({
@@ -35,10 +35,10 @@ const Home = () => {
             </div> */}
             <Menu></Menu>
             <Gallery></Gallery>
-            <WhyChooseUs></WhyChooseUs>
+            <Features></Features>
             <Resturant></Resturant>
-            <OurExpert></OurExpert>
             <Blogs></Blogs>
+             <Team></Team>
             <Discount></Discount>
         </div>
     );

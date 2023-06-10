@@ -4,6 +4,8 @@ import { HiMenu, HiOutlineSearch, HiX } from "react-icons/hi";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import tastyfood from '../../../images/tastyfood.png';
+
+
 const Header = () => {
 const [isOpen, setIsOpen] = useState(false);
     const { logOut, user } = useContext(AuthContext);

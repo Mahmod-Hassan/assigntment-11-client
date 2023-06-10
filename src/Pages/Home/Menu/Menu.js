@@ -1,8 +1,6 @@
 import React from 'react';
-import image1 from '../../../images/image1.jpeg';
-import image2 from '../../../images/image2.jpeg';
-import image3 from '../../../images/image3.jpeg';
-import image4 from '../../../images/image4.jpg';
+
+
  const Menu = () => {
     return (
         <div className='my-10'>
@@ -11,7 +9,7 @@ import image4 from '../../../images/image4.jpg';
            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
 
             <div className='border text-center pb-5 rounded'>
-                 <img className='w-full h-48' src={image1} alt="" />
+                 <img className='w-full h-48' src="https://i.ibb.co/kSn8Zdm/image1.jpg" alt="" />
                  <div className='px-5 space-y-2'>
                  <h3 className='text-2xl font-semibold'>Food 1</h3>
                  <p className='text-red-400 text-xl font-bold'>price : $20</p>
@@ -20,7 +18,7 @@ import image4 from '../../../images/image4.jpg';
             </div>
 
             <div className='border text-center pb-5 rounded'>
-                 <img className='w-full h-48' src={image2} alt="" />
+                 <img className='w-full h-48' src="https://i.ibb.co/Zh6Zs70/image2.jpg" alt="" />
                  <div className='px-5 space-y-2'>
                  <h3 className='text-2xl font-semibold'>Food 1</h3>
                  <p className='text-red-400 text-xl font-bold'>price : $20</p>
@@ -29,7 +27,7 @@ import image4 from '../../../images/image4.jpg';
             </div>
 
             <div className='border text-center pb-5 rounded'>
-                 <img className='w-full h-48' src={image3} alt="" />
+                 <img className='w-full h-48' src="https://i.ibb.co/M18tmP0/image3.jpg" alt="" />
                  <div className='px-5 space-y-2'>
                  <h3 className='text-2xl font-semibold'>Food 1</h3>
                  <p className='text-red-400 text-xl font-bold'>price : $20</p>
@@ -38,7 +36,7 @@ import image4 from '../../../images/image4.jpg';
             </div>
 
             <div className='border text-center pb-5 rounded'>
-                 <img className='w-full h-48' src={image4} alt="" />
+                 <img className='w-full h-48' src="https://i.ibb.co/TcYynjx/image4.jpg" alt="" />
                  <div className='px-5 space-y-2'>
                  <h3 className='text-2xl font-semibold'>Food 1</h3>
                  <p className='text-red-400 text-xl font-bold'>price : $20</p>
