@@ -26,37 +26,14 @@ const [isOpen, setIsOpen] = useState(false);
 
                 :
                 <>
-                    <Link className='text-gray-200 px-4 py-2 bg-gray-700 hover:bg-gray-600 hover:text-gray-400 rounded' to='/login'>Login</Link>
+                    <Link className='px-4 py-2 bg-lime-400 hover:bg-gray-600 hover:text-gray-400 rounded' to='/login'>Login</Link>
 
                 </>
         }
     </>
     return (
-        // <div className="navbar h-20 px-10 bg-base-100">
-        //     <div className="navbar-start">
-        //         <div className="dropdown">
-        //             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-        //                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-        //             </label>
-        //             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-4 shadow-md bg-base-100 w-48">
-        //                 <li>{user?.email}</li>
-        //                 <li>{Links}</li>
-        //             </ul>
-        //         </div>
-        //         <Link to='/'>
-        //             <h1 className="text-3xl font-bold text-pink-500">CLASSIC <span className="text-sky-900">KITCHEN</span></h1>
-        //         </Link>
-        //     </div>
-        //     <div className="navbar-center hidden lg:flex">
-        //         <ul className="menu items-center menu-horizontal p-0">
-        //             {Links}
-        //         </ul>
-        //     </div>
-        //     <div className="navbar-end">
-        //     
-        //     </div>
-        // </div>
-        <nav className="text-white shadow text-gray-400 bg-gray-800 md:px-10 md:flex justify-between items-center">
+      
+        <nav className="text-white shadow bg-gray-800 md:px-10 md:flex justify-between items-center">
           
             <div className="flex justify-between">
               <Link to='/home'>
