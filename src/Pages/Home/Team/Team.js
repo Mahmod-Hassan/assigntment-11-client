@@ -23,7 +23,7 @@ const Team = () => {
             <h2 className="text-3xl text-center text-gray-800 uppercase font-bold mb-10">Our Team</h2>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10'>
         {
-            experts.map((expert,i) => <div className="bg-white rounded-lg shadow-lg dark:bg-gray-800">
+            experts.map((expert,i) => <div key={i} className="bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <img className="object-cover w-full h-56" src={expert.photo} alt="avatar" />
             <div className="py-5 text-center">
               <p className='text-xl font-bold text-gray-800'>{expert.name}</p>

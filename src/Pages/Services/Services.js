@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import Loader from '../../Loader/Loader';
 import Service from '../Service/Service';
 
 
 const Services = () => {
-    const { data: services = [] } = useQuery({
+    const { data: services = [],isLoading } = useQuery({
         queryKey: ['services'],
         queryFn: async () => {
             const res = await fetch('https://assigntment-11-server.vercel.app/services');
@@ -13,6 +14,9 @@ const Services = () => {
             return data;
         }
     })
+        if(isLoading){
+            return <Loader></Loader>
+        }
     return (
         <>
             <Helmet><title>Services - Classic Kitchen</title></Helmet>
@@ -24,6 +28,7 @@ const Services = () => {
                     ></Service>)
                 }
             </div>
+            
         </>
 
     );

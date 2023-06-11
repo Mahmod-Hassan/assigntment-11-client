@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import AuthProvider from './context/AuthProvider/AuthProvider';
 import {
   QueryClient,
   QueryClientProvider,
-} from '@tanstack/react-query'
+} from '@tanstack/react-query';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
+import App from './App';
+import AuthProvider from './context/AuthProvider/AuthProvider';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
 
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,7 +19,6 @@ root.render(
         <HelmetProvider>
           <App />
         </HelmetProvider>
-
       </AuthProvider>
     </QueryClientProvider>
 

@@ -15,15 +15,15 @@ const [isOpen, setIsOpen] = useState(false);
         navigate('/');
     }
     const Links = <>
-        <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700' to='/'>Home</Link>
-        <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700' to='/services'>Services</Link>
-        <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700' to='/blogs'>Blogs</Link>
+        <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700 transition-colors duration-300' to='/'>Home</Link>
+        <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700 services transition-colors duration-300' to='/services'>Services</Link>
+        <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700 transition-colors duration-300' to='/blogs'>Blogs</Link>
         {
             user?.uid ?
                 <>
-                    <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700' to='/my-reviews'>My Reviews</Link>
-                    <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700' to='/add-service'>Add Service</Link>
-                    <button onClick={handleLogout} className='text-gray-200 px-4 py-2 bg-gray-700 hover:bg-gray-600 hover:text-gray-400 rounded'>Logout</button>
+                    <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700 transition-colors duration-300' to='/my-reviews'>My Reviews</Link>
+                    <Link className='text-gray-200 px-2 py-2 hover:bg-gray-700 transition-colors duration-300' to='/add-service'>Add Service</Link>
+                    <button onClick={handleLogout} className='px-4 py-2 bg-lime-400 hover:bg-gray-600 hover:text-gray-400 rounded'>Logout</button>
                 </>
 
                 :
@@ -35,10 +35,10 @@ const [isOpen, setIsOpen] = useState(false);
     </>
     return (
       
-        <nav className="text-white shadow bg-gray-800 md:px-10 md:flex justify-between items-center">
+        <nav className="text-white sticky top-0 shadow bg-gray-800 md:px-10 md:flex justify-between items-center z-40">
           
             <div className="flex justify-between">
-              <Link to='/home'>
+              <Link to='/'>
                 <img className="w-20 h-20 bg-white rounded-full" src={tastyfood} alt="" />
               </Link>
               {/* Mobile menu button */}
@@ -52,27 +52,29 @@ const [isOpen, setIsOpen] = useState(false);
            
            
               <div className="relative hidden md:block">
-                <HiOutlineSearch className='text-gray-400 absolute left-2 top-4'></HiOutlineSearch>
-                <input type="text" className="w-full py-2 px-10  border rounded-lg bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Search" />
+                <HiOutlineSearch className='text-gray-400 absolute left-2 top-3.5'></HiOutlineSearch>
+                <input type="text" className="w-full py-2 px-8  border rounded-lg bg-gray-600 text-gray-300 border-gray-600 focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="search food" />
               </div>
 
           
-              <div className='bg-gray-800 absolute w-full md:w-auto md:static'>
-                              <ul className={`flex flex-col md:space-x-2 ${isOpen? "block" : "hidden"} md:block`}>{Links}</ul> 
-                              <div className='hidden lg:block'>
-                              {
-                                    user?.email &&
-                                    <>
-                                        <span className='mr-2 text-gray-500'>{user.email}</span>
-                                        <img
-                                            src={user?.photoURL}
-                                            className='w-16 h-16 rounded-full'
-                                            alt=""
-                                        ></img>
-                                    </>
+              <div className='flex gap-4 items-center absolute w-full md:w-auto md:static'>
+                    <ul className={`flex flex-col md:flex-row md:space-x-2 ${isOpen? "block py-5 md:py-0" : "hidden"} md:block`}>{Links}
+                    </ul> 
+                    
+                    <div className='hidden lg:block'>
+                    {
+                          user?.email &&
+                          <>
+                              {/* <span className='mr-2 text-gray-500'>{user.email}</span> */}
+                              <img
+                                  src={user?.photoURL}
+                                  className='w-8 h-8 rounded-full hover:cursor-pointer'
+                                  alt=""
+                              ></img>
+                          </>
 
-                                }
-                              </div>
+                      }
+                    </div>
                            
               </div>
               
